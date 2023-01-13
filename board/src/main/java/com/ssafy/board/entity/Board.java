@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Board extends TimeEntity{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String title;
@@ -25,6 +25,15 @@ public class Board extends TimeEntity{
 
     @Builder
     public Board(int id, String title, String writer, String content, int count) {
+        this.id = id;
+        this.title = title;
+        this.writer = writer;
+        this.content = content;
+        this.count = count;
+
+    }
+
+    public void update(int id, String title, String writer, String content, int count) {
         this.id = id;
         this.title = title;
         this.writer = writer;
